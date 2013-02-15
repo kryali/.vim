@@ -19,7 +19,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 
 " color schemes!
 Bundle 'flazz/vim-colorschemes'
@@ -68,6 +68,7 @@ imap jj <Esc>
 " Custom shortcuts
 map <Leader><Leader> :NERDTreeToggle<cr>
 map <leader>n :set number!<cr>
+map <leader><F5> :CommandTFlush<cr>
 
 " Tab navigation
 nmap tk :tabnext<CR>
@@ -88,3 +89,9 @@ nmap <leader>- <C-w>-
 
 nmap <Leader>s :source $MYVIMRC<cr>
 colorscheme mustang
+
+" Omni completion
+filetype plugin on
+set ofu=syntaxcomplete#Complete
+
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
