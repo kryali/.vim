@@ -29,11 +29,14 @@ Bundle 'desert-warm-256'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+
+" Git-diffs
+Bundle 'airblade/vim-gitgutter'
+
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
-
-filetype plugin indent on     " required!
+" filetype plugin indent on     " required!
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -68,6 +71,9 @@ imap jj <Esc>
 " Custom shortcuts
 map <Leader><Leader> :NERDTreeToggle<cr>
 map <leader>n :set number!<cr>
+map <leader>i :set autoindent<cr>
+map <leader>o :set noautoindent<cr>
+map <leader>m :ToggleGitGutter<cr>
 map <leader><F5> :CommandTFlush<cr>
 
 " Tab navigation
@@ -94,4 +100,11 @@ colorscheme mustang
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 
+let g:rails_modelines=1 
+nmap <F10> :Rake<cr>
+
+" Non standard ruby files
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+
+" Vim gutter highlight clear
+highlight clear SignColumn
