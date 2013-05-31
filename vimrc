@@ -60,6 +60,7 @@ set ts=2
 set sw=2
 set autoindent
 set background=dark
+set incsearch
 
 let g:EasyMotion_leader_key = '\'
 
@@ -103,8 +104,14 @@ set ofu=syntaxcomplete#Complete
 let g:rails_modelines=1 
 nmap <F10> :Rake<cr>
 
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
 " Non standard ruby files
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
 " Vim gutter highlight clear
 highlight clear SignColumn
+" set paste
+set autowrite
